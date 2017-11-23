@@ -1,0 +1,40 @@
+
+.body {
+        font-family: Arial, sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+#container {
+    display: flex ;
+    align-items: stretch ;
+    flex-flow: row wrap ;
+    height: 100%;
+    background-color: #808080;
+
+  }
+  #navbar {
+    order: 1 ;
+    width: 20%;
+    background-color: #4d4d4d;
+    color: white;
+    
+  }
+  #map {
+    order: 2 ;
+    width: 80% ;
+     height: 700px;
+     position: relative;
+    overflow: hidden;
+    margin-top: 50px;
+    
+   
+      }
+}
+
+
+
+
+
+      

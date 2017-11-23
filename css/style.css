@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+    padding: 10px;
+    
+}
+
+.left {
+  width: 25%;
+
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+
+.body {
+        font-family: Arial, sans-serif;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+#map {
+        height: 100%;
+      }      
