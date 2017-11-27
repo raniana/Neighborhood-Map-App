@@ -10,9 +10,15 @@
 <div id="container">
   <div id="navbar" >
     <h2 style="text-align: center;">Neighborhood Map</h2>
+    <div>
+      <input type="search" data-bind="textInput: query">
+      <button data-bind="click: updatePlaceList">Filter</button>
+    </div>
       <ul data-bind="foreach: placeList">
-        <li data-bind="text: $data.title, click: $parent.triggerMarker"></li>
+        <li data-bind="text: $data.title, click: $parent.triggerMarker, visible: $data.show"></li>
       </ul>
+
+      
     
   </div>
   

@@ -20,7 +20,16 @@ var locations = [
               {
               	title: "Pizza Hut",
               	position: {lat: 29.77141469999999, lng: -95.7506004}
+              },
+              {
+              	title: "Katy Library",
+              	position: {lat: 29.802324, lng: -95.81735759999998}
+              },
+              {
+              	title: "Star Bucks Cafe",
+              	position: {lat:29.7843468, lng: -95.70540570000003}
               }
+
             ]
 
 Marker = function(map,infoWindow,data){
@@ -50,6 +59,7 @@ var Place = function(map,infoWindow,data){
 
 	this.title = ko.observable(data.title);
 	this.marker = Marker(map,infoWindow,data);
+	this.show = ko.observable(true);
 
 }
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -92,12 +102,14 @@ var infoWindow;
         
          }
 
+/////////////////////////////////////////////////////////////////////////////////////
+
 
 var ViewModel = function(){
     
     var self = this;
+    this.query = ko.observable('');
 	this.placeList = ko.observableArray([]);
-	//var markers = [];
 	locations.forEach(function(location){
 		self.placeList.push(new Place(map,infoWindow,location));
 		
@@ -107,11 +119,35 @@ var ViewModel = function(){
     this.triggerMarker = function(place){
 
     	google.maps.event.trigger(place.marker, 'click');
-    };  
+    }; 
+
+    self.updatePlaceList = ko.computed(function(){
+    	var val = self.query();
+    	console.log(val);
+    	for(var i=0;i<self.placeList().length;i++){
+    		if (self.placeList()[i].title().toLowerCase().indexOf(val) >= 0){
+    			self.placeList()[i].show(true);
+    			self.placeList()[i].marker.setMap(map);
+    			console.log(self.placeList()[i].title());
+    		}
+
+    		else {
+    			self.placeList()[i].marker.setMap(null);
+    			self.placeList()[i].show(false);
+    			
+    		}
+
+    	}
+    	
+
+    });
+    	
+    	
+   
 
 	 
 
-} 
+}; 
 
 //ko.applyBindings(new ViewModel());
 
