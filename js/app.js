@@ -123,11 +123,11 @@ populateInfoWindow = function(marker, infoWindow, d) {
 
 /////////////////////////////////////////////////////////////////////////////////////
 
+var showError = ko.observable(false);
 
 var ViewModel = function(){
     
     var self = this;
-    this.showError = ko.observable(false);
     this.query = ko.observable('');
     this.showFSerrorMsg = ko.observable(false);
     //create an empty observable array to carry all the locations
@@ -173,13 +173,14 @@ var ViewModel = function(){
 //show the error message if the google map was un able to load
 function googleError(){
 	//$('#mapError').append('google Map could not be loaded');
-	ViewModel.showError(true);
+	this.showError(true);
 }
 ///////////////////////////////////////////////////////////////////////////////////////////           
 
 var map;
 var bounds;
 var infoWindow;
+
       function initMap() {
 
       	bounds = new google.maps.LatLngBounds();

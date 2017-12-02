@@ -1,36 +1,17 @@
 * {
     box-sizing: border-box;
 }
-
-body {
-    margin: 0;
-}
-
-/* Create two unequal columns that floats next to each other */
-.column {
+#menu {
+    width: 25%;
     float: left;
-    padding: 10px;
-    
+    padding: 15px;
+    border: 1px solid red;
+     height: calc(100vh - 10px);
 }
-
-.left {
-  width: 25%;
-
-}
-
-.right {
-  width: 75%;
-}
-
-/* Clear floats after the columns */
-
-.body {
-        font-family: Arial, sans-serif;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
 #map {
-        height: 100%;
-      }      
+    width: 75%;
+    float: left;
+    padding: 15px;
+    border: 1px solid red;
+    height: calc(100vh - 10px);
+}
